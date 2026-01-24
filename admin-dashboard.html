@@ -45,6 +45,12 @@
                 <!-- MENU -->
                 <div class="sidebar-menu">
                     <ul class="menu mt-2">
+                        <li class="sidebar-item">
+                            <a href="index.html" class="sidebar-link">
+                                <i class="bi bi-box-arrow-left"></i>
+                                <span>Dashboard Anggota</span>
+                            </a>
+                        </li>
 
                         <li class="sidebar-item active">
                             <a href="admin-dashboard.html" class="sidebar-link">
@@ -127,16 +133,8 @@
                             </a>
                         </li>
                     </ul>
-               
+
                     <ul class="menu border-top">
-
-                        <li class="sidebar-item">
-                            <a href="index.html" class="sidebar-link">
-                                <i class="bi bi-box-arrow-left"></i>
-                                <span>Dashboard Anggota</span>
-                            </a>
-                        </li>
-
                         <li class="sidebar-item">
                             <a href="logout.html" class="sidebar-link text-danger">
                                 <i class="bi bi-box-arrow-right"></i>
@@ -228,7 +226,7 @@
                     </div>
                 </div>
 
-                
+
             </section>
 
             <!-- GRAFIK + AKTIVITAS -->
@@ -400,68 +398,68 @@
     <script src="assets/static/js/pages/ui-chartjs.js"></script>
 
     <script>
-       document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
 
-    const ctx = document.getElementById('chartAdminSimpanan');
+            const ctx = document.getElementById('chartAdminSimpanan');
 
-    if (!ctx) return;
+            if (!ctx) return;
 
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: [
-                'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des', 'Jan'
-            ],
-            datasets: [{
-                label: 'Total Simpanan (Rp)',
-                data: [
-                    18000000,
-                    22000000,
-                    20000000,
-                    25000000,
-                    27000000,
-                    30000000,
-                    32000000
-                ],
-                borderWidth: 3,
-                fill: true,
-                tension: 0.4,
-                backgroundColor: 'rgba(67, 94, 190, 0.15)',
-                borderColor: '#435ebe',
-                pointBackgroundColor: '#435ebe',
-                pointRadius: 4
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'top'
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [
+                        'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des', 'Jan'
+                    ],
+                    datasets: [{
+                        label: 'Total Simpanan (Rp)',
+                        data: [
+                            18000000,
+                            22000000,
+                            20000000,
+                            25000000,
+                            27000000,
+                            30000000,
+                            32000000
+                        ],
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        backgroundColor: 'rgba(67, 94, 190, 0.15)',
+                        borderColor: '#435ebe',
+                        pointBackgroundColor: '#435ebe',
+                        pointRadius: 4
+                    }]
                 },
-                tooltip: {
-                    callbacks: {
-                        label: function (context) {
-                            return 'Rp ' + context.parsed.y.toLocaleString('id-ID');
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return 'Rp ' + context.parsed.y.toLocaleString('id-ID');
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function (value) {
+                                    return 'Rp ' + value.toLocaleString('id-ID');
+                                }
+                            }
                         }
                     }
                 }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function (value) {
-                            return 'Rp ' + value.toLocaleString('id-ID');
-                        }
-                    }
-                }
-            }
-        }
-    });
+            });
 
-});
+        });
 
 
     </script>
