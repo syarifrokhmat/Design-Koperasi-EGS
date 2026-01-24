@@ -1,0 +1,159 @@
+/* =====================
+   HEADER STYLE
+   ===================== */
+.dashboard-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+/* Inner container */
+.dashboard-header .header-inner {
+    height: 56px;
+    /* mirip mobile banking */
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Title */
+.header-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111;
+    text-decoration: none;
+}
+
+/* Badge notification */
+.badge-notification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 9px;
+    padding: 3px 5px;
+    border-radius: 50%;
+}
+
+/* =====================
+   SCROLLED STATE
+   ===================== */
+.dashboard-header.scrolled {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================
+   MOBILE FULL WIDTH
+   ===================== */
+@media (max-width: 767.98px) {
+    .dashboard-header {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+    }
+}
+
+/* =========================
+   MOBILE FIXED BOTTOM FOOTER
+   ========================= */
+
+.mobile-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: #ffffff;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 5;
+}
+
+.mobile-footer .footer-item {
+    flex: 1;
+    text-align: center;
+    color: #6c757d;
+    text-decoration: none;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.mobile-footer .footer-item i {
+    font-size: 18px;
+}
+
+.mobile-footer .footer-item.active {
+    color: #435ebe;
+    /* warna primary Mazer */
+    font-weight: 600;
+}
+
+.mobile-footer .footer-item.active i {
+    color: #435ebe;
+}
+
+
+
+/* SIDEBAR ADMIN */
+.layout-admin #sidebar {
+    background-color: #1f2937;
+}
+
+.layout-admin .sidebar-wrapper {
+    background-color: #1f2937;
+}
+
+.layout-admin .sidebar-header h5 {
+    color: #ffffff;
+}
+
+/* MENU */
+.layout-admin .sidebar-menu .sidebar-link {
+    color: #cbd5e1;
+}
+
+.layout-admin .sidebar-menu .sidebar-item.active>.sidebar-link {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+/* ICON */
+.layout-admin .sidebar-menu .sidebar-link i .sidebar-footer{
+    color: #9ca3af;
+}
+
+.layout-admin .sidebar-menu .sidebar-item.active i {
+    color: #ffffff;
+}
+
+/* FOOTER */
+.layout-admin .sidebar-footer {
+    /* background-color: #111827; */
+}
+
+/* SIDEBAR TITLE */
+.sidebar-title {
+    color: #ffffff !important;        /* lebih terang */
+}
+
+/* HOVER SIDEBAR LINK */
+.layout-admin .sidebar-menu .sidebar-link:hover {
+    background-color: #e5e7eb; /* abu terang */
+    color: #1f2937;            /* teks gelap */
+}
+
+/* ICON ikut gelap saat hover */
+.layout-admin .sidebar-menu .sidebar-link:hover i {
+    color: #1f2937;
+}
+
+#chartAdminSimpanan {
+    min-height: 280px;
+}

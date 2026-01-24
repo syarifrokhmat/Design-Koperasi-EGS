@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Anggota Koperasi</title>
+
+    <link rel="shortcut icon" href="./assets/compiled/svg/favicon.svg" type="image/x-icon" />
+    <link rel="shortcut icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw6nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F32zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3congOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC"
+        type="image/png" />
+
+    <link rel="stylesheet" href="./assets/compiled/css/app.css" />
+    <link rel="stylesheet" href="./assets/compiled/css/app-dark.css" />
+    <link rel="stylesheet" href="./assets/compiled/css/iconly.css" />
+
+
+    <link rel="stylesheet" href="assets/custom.css">
+
+</head>
+
+<body>
+    <script src="assets/static/js/initTheme.js"></script>
+    <div id="app">
+        <div id="sidebar">
+            <div class="sidebar-wrapper active d-flex flex-column h-100">
+                <div class="sidebar-header position-relative">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="logo">
+                            <a href="members-dashboard.html">
+                                <!-- <img
+                    src="./assets/compiled/svg/logo.svg"
+                    alt="Logo"
+                    srcset=""
+                  /> -->
+                                <h5>Nama / Logo Koperasi</h5>
+                            </a>
+                        </div>
+                        <div class="sidebar-toggler x">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu mt-2">
+                        <li class="sidebar-item">
+                            <a href="members-dashboard.html" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="members-simpanan.html" class="sidebar-link">
+                                <i class="bi bi-wallet2"></i>
+                                <span>Simpanan Saya</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="members-pinjaman.html" class="sidebar-link">
+                                <i class="bi bi-cash-stack"></i>
+                                <span>Pinjaman Saya</span>
+                            </a>
+                        </li>
+                        <!-- <li class="sidebar-item">
+                <a href="members-riwayat.html" class="sidebar-link">
+                  <i class="bi bi-clock-history"></i>
+                  <span>Riwayat</span>
+                </a>
+              </li> -->
+                    </ul>
+                </div>
+                <div class="sidebar-footer mt-auto">
+                    <ul class="menu border-top">
+                        <li class="sidebar-item active">
+                            <a href="members-profile.html" class="sidebar-link">
+                                <i class="bi bi-person-circle"></i>
+                                <span>Nama Anggota</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="index.html" class="sidebar-link">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-1 p-3" id="main">
+        <header class="dashboard-header">
+            <div class="header-inner d-flex align-items-center">
+                <!-- Logo / Nama -->
+                <a href="members-dashboard.html" class="header-title d-xl-none">
+                    Nama Koperasi
+                </a>
+
+                <!-- Notification -->
+                <div class="dropdown ms-auto">
+                    <a href="#" data-bs-toggle="dropdown" class="position-relative">
+                        <i class="bi bi-bell fs-5"></i>
+                        <span class="badge bg-danger badge-notification">3</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        <li class="dropdown-header">Notifikasi</li>
+                        <li><a class="dropdown-item" href="#">Setoran berhasil</a></li>
+                        <li><a class="dropdown-item" href="#">Tagihan jatuh tempo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav class="mobile-footer d-md-none">
+            <a href="#" class="footer-item burger-btn">
+                <i class="bi bi-justify"></i>
+                <span>Menu</span>
+            </a>
+
+            <a href="members-dashboard.html" class="footer-item ">
+                <i class="bi bi-grid-fill"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="members-simpanan.html" class="footer-item">
+                <i class="bi bi-wallet2"></i>
+                <span>Simpanan</span>
+            </a>
+
+            <a href="members-pinjaman.html" class="footer-item">
+                <i class="bi bi-cash-stack"></i>
+                <span>Pinjaman</span>
+            </a>
+
+            <a href="members-profile.html" class="footer-item active">
+                <i class="bi bi-person"></i>
+                <span>Profil</span>
+            </a>
+        </nav>
+
+
+
+        <div class="page-heading">
+            <h4>Profil Anggota</h4>
+            <p class="text-muted mb-0">
+                Informasi akun dan keanggotaan Anda
+            </p>
+        </div>
+
+        <div class="page-content mb-3">
+            <section class="row g-3">
+
+                <!-- HEADER PROFIL -->
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body d-flex align-items-center gap-3">
+                            <div class="avatar avatar-xl">
+                                <img src="https://ui-avatars.com/api/?name=Nama+Anggota&background=4e73df&color=fff"
+                                    alt="Avatar">
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Nama Anggota</h5>
+                                <small class="text-muted">No. Anggota: AGT-00123</small>
+                                <div class="mt-1">
+                                    <span class="badge bg-success">Aktif</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                   <!-- ACTION -->
+                <div class="col-12">
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-primary">
+                            Edit Profil
+                        </a>
+                        <a href="#" class="btn btn-outline-danger">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+
+              
+
+                <!-- BIODATA -->
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Biodata</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-sm mb-0">
+                                <tr>
+                                    <th width="40%">Nama Lengkap</th>
+                                    <td>Nama Anggota</td>
+                                </tr>
+                                <tr>
+                                    <th>NIK</th>
+                                    <td>327xxxxxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <th>Tanggal Lahir</th>
+                                    <td>12 Januari 2005</td>
+                                </tr>
+                                <tr>
+                                    <th>Alamat</th>
+                                    <td>Bandung, Jawa Barat</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                  <!-- KARTU ANGGOTA -->
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Kartu Anggota</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <img class="img-fluid" src="https://t3.ftcdn.net/jpg/01/22/84/86/360_F_122848657_PaoGFDZbMfiwvmTLJTIYoitgXG692s9H.jpg" alt="">
+                            <!-- <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=AGT-00123"
+                                alt="QR Code"> -->
+                            <!-- <p class="text-muted mt-2 mb-0">
+                                Tunjukkan QR ini saat transaksi di koperasi
+                            </p> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KONTAK -->
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Informasi Kontak</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-sm mb-0">
+                                <tr>
+                                    <th width="40%">Email</th>
+                                    <td>anggota@email.com</td>
+                                </tr>
+                                <tr>
+                                    <th>No. HP</th>
+                                    <td>08xxxxxxxxxx</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <!-- AKUN & KEAMANAN -->
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Akun & Keamanan</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-sm">
+                                <tr>
+                                    <th width="40%">Username</th>
+                                    <td>namaanggota</td>
+                                </tr>
+                                <tr>
+                                    <th>Terakhir Login</th>
+                                    <td>18 Jan 2026, 09:12</td>
+                                </tr>
+                            </table>
+
+                            <a href="#" class="btn btn-outline-primary btn-sm">
+                                Ubah Password
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+             
+
+            </section>
+        </div>
+
+
+
+        <footer>
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>&copy; 2026</p>
+                </div>
+                <div class="float-end">
+                    <p>
+                        Crafted with
+                        <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
+                        by Nama Koperasi
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <!-- <script src="assets/static/js/components/dark.js"></script> -->
+    <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/compiled/js/app.js"></script>
+
+    <script src="assets/static/js/pages/datatables.js"></script>
+
+
+    <!-- Need: Apexcharts -->
+    <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/static/js/pages/dashboard.js"></script>
+    <script src="assets/script.js"></script>
+
+
+    <script src="assets/extensions/chart.js/chart.umd.js"></script>
+    <script src="assets/static/js/pages/ui-chartjs.js"></script>
+
+    <script>
+        const ctx = document.getElementById('chartSimpanan');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
+                datasets: [{
+                    label: 'Simpanan',
+                    data: [500000, 750000, 600000, 900000, 800000, 700000],
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        ticks: {
+                            callback: value => 'Rp ' + value.toLocaleString('id-ID')
+                        }
+                    }
+                }
+            }
+        });
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Admin Koperasi</title>
+
+    <link rel="shortcut icon" href="./assets/compiled/svg/favicon.svg" type="image/x-icon" />
+    <link rel="shortcut icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw6nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F32zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3congOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC"
+        type="image/png" />
+
+    <link rel="stylesheet" href="./assets/compiled/css/app.css" />
+    <link rel="stylesheet" href="./assets/compiled/css/app-dark.css" />
+    <link rel="stylesheet" href="./assets/compiled/css/iconly.css" />
+
+
+    <link rel="stylesheet" href="assets/custom.css">
+
+</head>
+
+<body class="layout-admin">
+    <script src="assets/static/js/initTheme.js"></script>
+    <div id="app">
+        <div id="sidebar">
+            <div class="sidebar-wrapper active d-flex flex-column h-100">
+
+                <!-- HEADER -->
+                <div class="sidebar-header position-relative">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="logo">
+                            <a href="admin-dashboard.html">
+                                <h5 class="mb-0">Admin Koperasi</h5>
+                            </a>
+                        </div>
+                        <div class="sidebar-toggler x">
+                            <a href="#" class="sidebar-hide d-xl-none d-block">
+                                <i class="bi bi-x bi-middle"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MENU -->
+                <div class="sidebar-menu">
+                    <ul class="menu mt-2">
+
+                        <li class="sidebar-item active">
+                            <a href="admin-dashboard.html" class="sidebar-link">
+                                <i class="bi bi-speedometer2"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-title">Master Data</li>
+
+                        <li class="sidebar-item">
+                            <a href="admin-anggota.html" class="sidebar-link">
+                                <i class="bi bi-people"></i>
+                                <span>Anggota</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="admin-jenis-simpanan.html" class="sidebar-link">
+                                <i class="bi bi-wallet2"></i>
+                                <span>Jenis Simpanan</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="admin-jenis-pinjaman.html" class="sidebar-link">
+                                <i class="bi bi-cash-coin"></i>
+                                <span>Jenis Pinjaman</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-title">Transaksi</li>
+
+                        <li class="sidebar-item">
+                            <a href="admin-setoran.html" class="sidebar-link">
+                                <i class="bi bi-arrow-down-circle"></i>
+                                <span>Setoran Simpanan</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="admin-pinjaman.html" class="sidebar-link">
+                                <i class="bi bi-file-earmark-text"></i>
+                                <span>Pinjaman</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="admin-angsuran.html" class="sidebar-link">
+                                <i class="bi bi-arrow-repeat"></i>
+                                <span>Angsuran</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-title">Laporan</li>
+
+                        <li class="sidebar-item">
+                            <a href="admin-laporan-simpanan.html" class="sidebar-link">
+                                <i class="bi bi-bar-chart"></i>
+                                <span>Laporan Simpanan</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="admin-laporan-pinjaman.html" class="sidebar-link">
+                                <i class="bi bi-graph-up"></i>
+                                <span>Laporan Pinjaman</span>
+                            </a>
+                        </li>
+                    </ul>
+               
+                    <ul class="menu border-top">
+
+                        <li class="sidebar-item">
+                            <a href="admin-profile.html" class="sidebar-link">
+                                <i class="bi bi-person-circle"></i>
+                                <span>Profil Admin</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="logout.html" class="sidebar-link text-danger">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="pt-1 p-3" id="main">
+        <header class="dashboard-header">
+            <div class="header-inner d-flex align-items-center">
+                <!-- Logo / Nama -->
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+                <span class="header-title d-block d-xl-none fw-bold ms-3"> Admin Koperasi</span>
+
+                <!-- Notification -->
+                <div class="dropdown ms-auto">
+                    <a href="#" data-bs-toggle="dropdown" class="position-relative">
+                        <i class="bi bi-bell fs-5"></i>
+                        <span class="badge bg-danger badge-notification">3</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        <li class="dropdown-header">Notifikasi</li>
+                        <li><a class="dropdown-item" href="#">Setoran berhasil</a></li>
+                        <li><a class="dropdown-item" href="#">Tagihan jatuh tempo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-heading">
+            <h4>Dashboard Admin</h4>
+            <p class="text-muted mb-0">
+                Ringkasan aktivitas dan kondisi koperasi
+            </p>
+        </div>
+
+        <div class="page-content">
+
+            <!-- STATISTIK UTAMA -->
+            <section class="row g-3 mb-4">
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="card card-stat">
+                        <div class="card-body d-flex align-items-center gap-3">
+                            <div class="stats-icon blue">
+                                <i class="iconly-boldProfile"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-muted font-semibold">Total Anggota</h6>
+                                <h6 class="font-extrabold">120 Orang</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="card card-stat">
+                        <div class="card-body d-flex align-items-center gap-3">
+                            <div class="stats-icon green">
+                                <i class="iconly-boldWallet"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-muted font-semibold">Total Simpanan</h6>
+                                <h6 class="font-extrabold">Rp 350.000.000</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="card card-stat">
+                        <div class="card-body d-flex align-items-center gap-3">
+                            <div class="stats-icon red">
+                                <i class="iconly-boldPaper"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-muted font-semibold">Pinjaman Aktif</h6>
+                                <h6 class="font-extrabold">Rp 180.000.000</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="card card-stat">
+                        <div class="card-body d-flex align-items-center gap-3">
+                            <div class="stats-icon orange">
+                                <i class="iconly-boldDanger"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-muted font-semibold">Menunggak</h6>
+                                <h6 class="font-extrabold">5 Anggota</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GRAFIK + AKTIVITAS -->
+            <section class="row g-3 mb-4">
+                <div class="col-12 col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Grafik Simpanan Bulanan</h4>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="chartAdminSimpanan"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Perlu Tindakan</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush small">
+                                <li class="list-group-item d-flex justify-content-between">
+                                    Setoran menunggu verifikasi
+                                    <span class="badge bg-warning">3</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    Pengajuan pinjaman
+                                    <span class="badge bg-info">2</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    Penarikan simpanan
+                                    <span class="badge bg-primary">1</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AKTIVITAS TERBARU -->
+            <section class="row g-3 mb-4">
+                <div class="col-12 col-lg-7">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Aktivitas Terbaru</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Tanggal</th>
+                                            <th>Anggota</th>
+                                            <th>Aktivitas</th>
+                                            <th class="text-end">Jumlah</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>14 Jan 2026</td>
+                                            <td>Ani</td>
+                                            <td>Setoran Wajib</td>
+                                            <td class="text-end">Rp 50.000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13 Jan 2026</td>
+                                            <td>Budi</td>
+                                            <td>Pinjaman Baru</td>
+                                            <td class="text-end">Rp 2.000.000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12 Jan 2026</td>
+                                            <td>Siti</td>
+                                            <td>Penarikan Simpanan</td>
+                                            <td class="text-end">Rp 300.000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">
+                                Lihat Semua Aktivitas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PENGUMUMAN -->
+                <div class="col-12 col-lg-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Pengumuman</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled small">
+                                <li class="mb-2">
+                                    📌 RAT Koperasi akan dilaksanakan tanggal <b>25 Januari 2026</b>.
+                                </li>
+                                <li class="mb-2">
+                                    ⚠️ Batas pembayaran simpanan wajib tanggal <b>20 Januari 2026</b>.
+                                </li>
+                                <li>
+                                    ℹ️ Perubahan jam operasional bendahara.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QUICK ACTION -->
+            <section class="row g-3">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body d-flex flex-wrap gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">
+                                ➕ Tambah Anggota
+                            </a>
+                            <a href="#" class="btn btn-success btn-sm">
+                                💰 Input Setoran
+                            </a>
+                            <a href="#" class="btn btn-warning btn-sm">
+                                💳 Input Pinjaman
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm">
+                                📄 Laporan Bulanan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+
+
+        <footer>
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>&copy; 2026</p>
+                </div>
+                <div class="float-end">
+                    <p>
+                        Crafted with
+                        <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
+                        by Nama Koperasi
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <!-- <script src="assets/static/js/components/dark.js"></script> -->
+    <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/compiled/js/app.js"></script>
+
+    <script src="assets/static/js/pages/datatables.js"></script>
+
+
+    <!-- Need: Apexcharts -->
+    <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/static/js/pages/dashboard.js"></script>
+    <script src="assets/script.js"></script>
+
+
+    <script src="assets/extensions/chart.js/chart.umd.js"></script>
+    <script src="assets/static/js/pages/ui-chartjs.js"></script>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+
+    const ctx = document.getElementById('chartAdminSimpanan');
+
+    if (!ctx) return;
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [
+                'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des', 'Jan'
+            ],
+            datasets: [{
+                label: 'Total Simpanan (Rp)',
+                data: [
+                    18000000,
+                    22000000,
+                    20000000,
+                    25000000,
+                    27000000,
+                    30000000,
+                    32000000
+                ],
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                backgroundColor: 'rgba(67, 94, 190, 0.15)',
+                borderColor: '#435ebe',
+                pointBackgroundColor: '#435ebe',
+                pointRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            return 'Rp ' + context.parsed.y.toLocaleString('id-ID');
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function (value) {
+                            return 'Rp ' + value.toLocaleString('id-ID');
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+});
+
+
+    </script>
+
+</body>
+
+</html>
