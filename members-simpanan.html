@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="members-pinjaman.html" class="sidebar-link">
+                            <a href="#" class="sidebar-link">
                                 <i class="bi bi-cash-stack"></i>
                                 <span>Pinjaman Saya</span>
                             </a>
@@ -81,6 +81,12 @@
                             <a href="members-profile.html" class="sidebar-link">
                                 <i class="bi bi-person-circle"></i>
                                 <span>Nama Anggota</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="admin-dashboard.html" class="sidebar-link">
+                                <i class="bi bi-speedometer2"></i>
+                                <span>Dashboard Admin</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -132,7 +138,7 @@
                 <span>Simpanan</span>
             </a>
 
-            <a href="members-pinjaman.html" class="footer-item">
+            <a href="#" class="footer-item">
                 <i class="bi bi-cash-stack"></i>
                 <span>Pinjaman</span>
             </a>
@@ -313,36 +319,36 @@
 
 
     <script>
-       $(document).ready(function () {
-    $('#tableSimpanan').DataTable({
-        order: [[0, 'desc']],
-        pageLength: 10,
-        language: {
-            search: "Cari:",
-            lengthMenu: "Tampilkan _MENU_ data",
-            info: "Menampilkan _START_ - _END_ dari _TOTAL_ data",
-            infoEmpty: "Data tidak tersedia",
-            zeroRecords: "Data tidak ditemukan",
-            paginate: {
-                previous: "‹",
-                next: "›"
-            }
-        },
-        columnDefs: [
-            {
-                targets: [3, 4],
-                className: 'text-end',
-                render: function (data) {
-                    let number = parseInt(data);
-                    let formatted = number.toLocaleString('id-ID');
-                    return number < 0
-                        ? `<span class="text-danger">- Rp ${Math.abs(number).toLocaleString('id-ID')}</span>`
-                        : `Rp ${formatted}`;
-                }
-            }
-        ]
-    });
-});
+        $(document).ready(function () {
+            $('#tableSimpanan').DataTable({
+                order: [[0, 'desc']],
+                pageLength: 10,
+                language: {
+                    search: "Cari:",
+                    lengthMenu: "Tampilkan _MENU_ data",
+                    info: "Menampilkan _START_ - _END_ dari _TOTAL_ data",
+                    infoEmpty: "Data tidak tersedia",
+                    zeroRecords: "Data tidak ditemukan",
+                    paginate: {
+                        previous: "‹",
+                        next: "›"
+                    }
+                },
+                columnDefs: [
+                    {
+                        targets: [3, 4],
+                        className: 'text-end',
+                        render: function (data) {
+                            let number = parseInt(data);
+                            let formatted = number.toLocaleString('id-ID');
+                            return number < 0
+                                ? `<span class="text-danger">- Rp ${Math.abs(number).toLocaleString('id-ID')}</span>`
+                                : `Rp ${formatted}`;
+                        }
+                    }
+                ]
+            });
+        });
 
     </script>
 
