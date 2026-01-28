@@ -27,6 +27,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Koperasi">
 
+    <link rel="apple-touch-icon" href="/Design-Koperasi-EGS/assets/icons/icon-192.png">
     <!-- Manifest -->
     <link rel="manifest" href="/Design-Koperasi-EGS/manifest.json">
 
@@ -378,8 +379,10 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker
-                    .register('/Design-Koperasi-EGS/service-worker.js')
+                navigator.serviceWorker.register(
+                    '/Design-Koperasi-EGS/service-worker.js',
+                    { scope: '/Design-Koperasi-EGS/' }
+                )
                     .then(reg => {
                         console.log('Service Worker registered:', reg.scope);
                     })
@@ -389,6 +392,7 @@
             });
         }
     </script>
+
 
 </body>
 
