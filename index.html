@@ -28,7 +28,8 @@
     <meta name="apple-mobile-web-app-title" content="Koperasi">
 
     <!-- Manifest -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/Design-Koperasi-EGS/manifest.json">
+
 
 
 </head>
@@ -378,7 +379,7 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker
-                    .register('service-worker.js')
+                    .register('/Design-Koperasi-EGS/service-worker.js')
                     .then(reg => {
                         console.log('Service Worker registered:', reg.scope);
                     })

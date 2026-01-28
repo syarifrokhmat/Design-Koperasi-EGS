@@ -1,39 +1,37 @@
 const CACHE_NAME = 'koperasi-pwa-v1';
 
+const BASE = '/Design-Koperasi-EGS';
+
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  `${BASE}/`,
+  `${BASE}/index.html`,
+  `${BASE}/manifest.json`,
 
   // CSS
-  '/assets/compiled/css/app.css',
-  '/assets/compiled/css/app-dark.css',
-  '/assets/compiled/css/iconly.css',
-  '/assets/custom.css',
+  `${BASE}/assets/compiled/css/app.css`,
+  `${BASE}/assets/compiled/css/app-dark.css`,
+  `${BASE}/assets/compiled/css/iconly.css`,
+  `${BASE}/assets/custom.css`,
 
   // JS
-  '/assets/compiled/js/app.js',
-  '/assets/script.js',
+  `${BASE}/assets/compiled/js/app.js`,
+  `${BASE}/assets/script.js`,
 
   // Pages
-  '/members-simpanan.html',
-  '/members-profile.html',
+  `${BASE}/members-simpanan.html`,
+  `${BASE}/members-profile.html`,
 
   // Icons
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png'
+  `${BASE}/assets/icons/icon-192.png`,
+  `${BASE}/assets/icons/icon-512.png`
 ];
 
-// Install
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(ASSETS);
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
   );
 });
 
-// Activate
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
@@ -45,11 +43,8 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request).then(res => res || fetch(event.request))
   );
 });
